@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Contacts | BARBERCROP</title>
+        <title>Contatos | Barbearia Leone</title>
         <link rel="stylesheet preload" as="style" href="css/preload.min.css" />
         <link rel="stylesheet preload" as="style" href="css/icomoon.css" />
         <link rel="stylesheet preload" as="style" href="css/libs.min.css" />
@@ -22,55 +22,39 @@
                         />
                     </svg>
 
-                    <span class="brand-logo_name">barbercrop</span>
+                    <span class="brand-logo_name"> Barbearia Leone</span>
                 </a>
                 <nav class="header_nav">
                     <ul class="header_nav-list">
                         <li class="header_nav-list_item nav-item" data-page="home">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" href="index.html">Inicio</a>
                         </li>
                         <li class="header_nav-list_item nav-item" data-page="about">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="about.html">Sobre</a>
                         </li>
                         <li class="header_nav-list_item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Serviços</a>
                             <ul class="dropdown-menu">
                                 <li class="list-item nav-item" data-page="services">
-                                    <a class="dropdown-item" href="services.html">Services 01</a>
+                                    <a class="dropdown-item" href="services.html">Serviços 01</a>
                                 </li>
                                 <li class="list-item nav-item" data-page="services2">
-                                    <a class="dropdown-item" href="services2.html">Services 02 </a>
+                                    <a class="dropdown-item" href="services2.html">Serviços 02 </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="header_nav-list_item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Blog</a>
-                            <ul class="dropdown-menu">
-                                <li class="list-item nav-item" data-page="blog">
-                                    <a class="dropdown-item" href="blog.html">Blog</a>
-                                </li>
-                                <li class="list-item nav-item" data-page="post">
-                                    <a class="dropdown-item" href="post.html">Single post</a>
-                                </li>
-                            </ul>
+                            
                         </li>
                         <li class="header_nav-list_item nav-item" data-page="contacts">
-                            <a class="nav-link" href="contacts.html">Contacts</a>
+                            <a class="nav-link" href="contacts.html">Contatos</a>
                         </li>
                         <li class="header_nav-list_item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li class="list-item nav-item" data-page="gallery">
-                                    <a class="dropdown-item" href="gallery.html">Gallery</a>
-                                </li>
-                                <li class="list-item nav-item" data-page="error">
-                                    <a class="dropdown-item" href="404.html">404</a>
-                                </li>
-                            </ul>
+                            
                         </li>
                     </ul>
                 </nav>
-                <a class="header_btn btn theme-element" href="#">Book now</a>
+                <a class="header_btn btn theme-element" href="#">Agende agora</a>
                 <span class="header_trigger d-inline-flex d-lg-none flex-column justify-content-between">
                     <span class="line"></span>
                     <span class="line"></span>
@@ -96,17 +80,17 @@
                         <ul class="contacts_main-data">
                             <li class="contacts_main-data_item">
                                 <h3 class="title">Email</h3>
-                                <a class="data link link--underline" href="mailto:example@domain.com">barbercrop@example.com</a>
+                                <a class="data link link--underline" href="mailto:example@domain.com">barberLeone@example.com</a>
                             </li>
                             <li class="contacts_main-data_item">
-                                <h3 class="title">Address</h3>
-                                <span class="data">3891 Ranchview Dr. Richardson, <span class="linebreak">California 62639</span></span>
+                                <h3 class="title">Endereço</h3>
+                                <span class="data">rua Q lote 18 quadra 91, <span class="linebreak">Guapimirim-RJ</span></span>
                             </li>
                             <li class="contacts_main-data_item contacts_main-data_item--tel">
-                                <h3 class="title">Phone</h3>
+                                <h3 class="title">Telefone</h3>
                                 <div class="wrapper d-flex flex-column flex-md-row">
-                                    <a class="data link link--underline" href="tel:+1234567890">+1 234 567 890</a>
-                                    <a class="data link link--underline" href="tel:+1234567890">+1 234 567 890</a>
+                                    <a class="data link link--underline" href="tel:+55 21 99887-3328">+55 21 99887-3328</a>
+                                    
                                 </div>
                             </li>
                         </ul>
@@ -114,67 +98,46 @@
                             class="contacts_main-form d-flex flex-column flex-md-row flex-wrap justify-content-between col-lg-8"
                             action="form.php"
                             method="post"
-                            data-type="feedback"
-                            autocomplete="off"
+                            
                         >
                             <div class="form-block">
-                                <label class="contacts_main-form_label" for="contactsName">Name and surname *</label>
+                                <label class="contacts_main-form_label" for="contactsName">Nome e sobrenome *</label>
                                 <input
                                     class="field field--corner required"
                                     type="text"
                                     id="contactsName"
                                     name="contactsName"
-                                    placeholder="Your name here"
+                                    placeholder="Seu nome "
                                 />
                             </div>
+                            <label for="data">Data:</label><br>
+                            <input type="date" id="data" name="data" required><br><br>
+    
+                             <label for="horario">Horário:</label><br>
+                            <input type="time" id="horario" name="horario" required><br><br>
                             <div class="form-block">
-                                <label class="contacts_main-form_label" for="contactsService">Choose a service *</label>
-                                <div class="field-wrapper_block">
-                                    <select name="contactsService" id="contactsService">
-                                        <option value="haircut" selected>Haircut</option>
-                                        <option value="dyeing">Hair dyeing</option>
-                                        <option value="trim">Beard trim</option>
-                                        <option value="stacking">Stacking</option>
-                                        <option value="shave">Shave</option>
-                                        <option value="mustache">Mustache</option>
-                                    </select>
-                                </div>
-                                <input type="hidden" id="contactsServiceValue" />
-                            </div>
-                            <div class="form-block">
-                                <label class="contacts_main-form_label" for="contactsTel">Your phone number *</label>
+                                <label class="contacts_main-form_label" for="contactsTel">Seu numero de telefone *</label>
                                 <input
                                     class="field field--corner required"
                                     data-type="tel"
                                     type="text"
                                     name="contactsTel"
                                     id="contactsTel"
-                                    placeholder="Your phone here"
+                                    placeholder="numero de telefone"
                                 />
                             </div>
+                           
                             <div class="form-block">
-                                <label class="contacts_main-form_label" for="contactsDate">Choose an appointment date</label>
-                                <input
-                                    class="field field--corner optional"
-                                    data-type="date"
-                                    type="text"
-                                    id="contactsDate"
-                                    name="contactsDate"
-                                    placeholder="dd/mm/yyyy"
-                                />
-                                <input type="hidden" id="contactsDateValue" />
-                            </div>
-                            <div class="form-block">
-                                <label class="contacts_main-form_label" for="contactsMessage">Message</label>
+                                <label class="contacts_main-form_label" for="contactsMessage">Mensagem</label>
                                 <textarea
                                     class="field field--corner optional"
                                     id="contactsMessage"
                                     name="contactsMessage"
-                                    placeholder="Your message here"
+                                    placeholder="Sua mensagem aqui"
                                     data-type="message"
                                 ></textarea>
                             </div>
-                            <button class="btn theme-element" type="submit">Book now</button>
+                            <button class="btn theme-element" type="submit">Agende agora</button>
                         </form>
                     </div>
                 </div>
@@ -259,7 +222,7 @@
                 </p>
             </div>
         </footer>
-        <script src="js/common.min.js"></script>
+        
         <script src="js/contacts.min.js"></script>
     </body>
 </html>

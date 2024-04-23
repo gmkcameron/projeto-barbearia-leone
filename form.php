@@ -1,48 +1,34 @@
 <?php 
 
 	// Read the form values
-	$success = false;
+	
 	$name = $_POST['contactsName'];
-	$service $_POST['contactsServiceValue'];
-	$date = $_POST['contactsDateValue'];
-	$senderTel = $_POST['contactsTel'];
+	$data = $_POST['data'];
+    $horario = $_POST['horario'];
+	$senderTel = $_POST['contactsTel'] ;
 	$message = $_POST['contactsMessage'];
 
 	// configurações de credencias 
 	$server =  'localhost';
-	$usario = 'root';
+	$usuario = 'root';
 	$senha = '';
-	$banco = 'barbearia_formulario';
+	$banco = 'barbearia';
 
 	// conexao com nosso banco de dados
-	$conn = new mysqli($server, $usario, $senha, $banco);
+	$conn = new mysqli($server, $usuario, $senha, $banco);
 	// verificar conexao
 	if($conn->connect_error){
-		die("falha ao se comunicar com o banco de dados:".$sconn->connect_error);
+		die("falha ao se comunicar com o banco de dados:".$conn->connect_error);
 	}
-	$smtp = $sconn-> prepare("INSERT INTO form_clientes(nome, servico, telefone, data, mensagem) VALUES (?,?,?,?,?)")
-	$smtp0->bind_param("sssss", $name, $service, $senderTel, $date, $message);
+	$smtp = $conn-> prepare("INSERT INTO contatos (nome, telefone, data, mensagem, horario) VALUES (?,?,?,?,?)");
+	$smtp->bind_param("sssss",$name, $senderTel, $data, $message, $horario);
 
 	if($smtp->execute()){
-		echo "mensagem enviada com sucesso"
+		echo "Mensagem enviada com sucesso";
 	}else{
-		echo "erro no envio da mensagem:".$smtp->error;
+		echo "erro no envio da mensagem: ".$smtp->error;
 	}
-
 	$smtp->close();
 	$conn->close();
-	/*Headers
-	$to = "name@domain.com";
-    $subject = 'Contact Us';
-	$headers = "MIME-Version: 1.0\r\n";
-	$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
-
-	//body message
-	$message = "Name: ". $name . "<br>Phone: ". $senderTel . "<br>Service: ". $service . "<br>Date: ". $date . "<br> Message: " . $message . "";
-
-	//Email Send Function
-    $send_email = mail($to, $subject, $message, $headers);*/
-	
-
 
 ?>
