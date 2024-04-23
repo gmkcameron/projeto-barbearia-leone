@@ -2,11 +2,11 @@
 
 	// Read the form values
 	$success = false;
-	$name = isset( $_POST['contactsName'] ) ? preg_replace( "/[^\s\S\.\-\_\@a-zA-Z0-9]/", "", $_POST['contactsName'] ) : "";
-	$service = isset( $_POST['contactsServiceValue'] ) ? preg_replace( "/[^\s\S\.\-\_\@a-zA-Z0-9]/", "", $_POST['contactsServiceValue'] ) : "";
-	$date = isset( $_POST['contactsDateValue'] ) ? preg_replace( "/[^\s\S\.\-\_\@a-zA-Z0-9]/", "", $_POST['contactsDateValue'] ) : "";
-	$senderTel = isset( $_POST['contactsTel'] ) ? preg_replace( "/[^\s\S\.\-\_\@a-zA-Z0-9]/", "", $_POST['contactsTel'] ) : "";
-	$message = isset( $_POST['contactsMessage'] ) ? preg_replace( "/(From:|To:|BCC:|CC:|Subject:|Content-Type:)/", "", $_POST['contactsMessage'] ) : "";
+	$name = $_POST['contactsName'];
+	$service $_POST['contactsServiceValue'];
+	$date = $_POST['contactsDateValue'];
+	$senderTel = $_POST['contactsTel'];
+	$message = $_POST['contactsMessage'];
 
 	// configurações de credencias 
 	$server =  'localhost';
@@ -20,8 +20,8 @@
 	if($conn->connect_error){
 		die("falha ao se comunicar com o banco de dados:".$sconn->connect_error);
 	}
-	$smtp = $sconn-> prepare("INSERT INTO form_clientes(nome, servico, telefone, data, mensagem, horario) VALUES (?,?,?,?,?,?)")
-	$smtp0->bind_param($name, $service, $senderTel, $date, $message);
+	$smtp = $sconn-> prepare("INSERT INTO form_clientes(nome, servico, telefone, data, mensagem) VALUES (?,?,?,?,?)")
+	$smtp0->bind_param("sssss", $name, $service, $senderTel, $date, $message);
 
 	if($smtp->execute()){
 		echo "mensagem enviada com sucesso"
