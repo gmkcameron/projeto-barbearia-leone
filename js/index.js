@@ -51,7 +51,7 @@ function openPromoModal() {
             `,
             html: `
                     
-                    <a class="btn theme-element" href="#">Book now</a>
+                    <a class="btn theme-element" href="#">Agende agora</a>
                 `,
             customClass: {
                 popup: 'promo_popup',
