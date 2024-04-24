@@ -764,6 +764,7 @@ img {
     position: relative
 }
 
+
 .hero_slider {
     overflow: hidden;
     position: absolute;
@@ -787,6 +788,16 @@ img {
 .hero_content {
     position: relative;
     z-index: 10
+}
+
+
+.hero_content-header {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona uma transição suave para a animação */
+}
+
+.hero_content-header:hover {
+    transform: scale(1.05); /* Aumenta um pouco a escala do texto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona um leve sombreado */
 }
 
 .hero_content-text {
