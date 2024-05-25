@@ -4,15 +4,15 @@ include 'includes/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['contactsName'];
-    $data = $_POST['data'];
+    $data_ = $_POST['data_'];
     $horario = $_POST['horario'];
-    $senderTel = $_POST['contactsTel'];
-    $message = $_POST['contactsMessage'];
+    $contactsTel = $_POST['contactsTel'];
+    $contactsMessage = $_POST['contactsMessage'];
 
-    $sql = "INSERT INTO contatos (nome, telefone, data, mensagem, horario) VALUES (:nome, :telefone, :data, :mensagem, :horario)";
+    $sql = "INSERT INTO contatos (nome, telefone, data_, mensagem, horario) VALUES (:nome, :telefone, :data_, :mensagem, :horario)";
     $stmt = $pdo->prepare($sql);
 
-    if ($stmt->execute(['nome' => $name, 'telefone' => $senderTel, 'data' => $data, 'mensagem' => $message, 'horario' => $horario])) {
+    if ($stmt->execute(['contactsName' => $name, 'contactsTel' => $contactsTel, 'data_' => $data_, 'contactsMessage' => $contactsMessage, 'horario' => $horario])) {
         $successMessage = "Mensagem enviada com sucesso";
     } else {
         $errorMessage = "Erro no envio da mensagem: " . $stmt->errorInfo()[2];
@@ -46,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="contactsTel">Telefone:</label>
         <input type="text" id="contactsTel" name="contactsTel" required>
         <br>
-        <label for="data">Data (dd/mm/aaaa):</label>
-        <input type="text" id="data" name="data" required>
+        <label for="data_">Data (dd/mm/aaaa):</label>
+        <input type="text" id="data_" name="data_" required>
         <br>
         <label for="horario">Horário (hh:mm):</label>
         <input type="text" id="horario" name="horario" required>
