@@ -29,8 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <?php include 'includes/header.php'; ?>
-    
     <h2>Contato</h2>
 
     <?php if (isset($successMessage)) { ?>
