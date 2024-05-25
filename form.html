@@ -1,0 +1,23 @@
+<form method="post" action="form.php">
+    <div class="form-block">
+        <label for="contactsName">Nome e sobrenome *</label>
+        <input class="field field--corner required" type="text" id="contactsName" name="contactsName" placeholder="Seu nome " required>
+    </div>
+    <div class="form-block">
+        <label for="contactsTel">Seu número de telefone *</label>
+        <input class="field field--corner required" type="tel" id="contactsTel" name="contactsTel" placeholder="Seu número de telefone" required>
+    </div>
+    <div class="form-block">
+        <label for="data_">Data:</label><br>
+        <input type="date" id="data_" name="data_" required><br><br>
+    </div>
+    <div class="form-block">
+        <label for="horario">Horário:</label><br>
+        <input type="time" id="horario" name="horario" required><br><br>
+    </div>
+    <div class="form-block">
+        <label for="contactsMessage">Mensagem</label>
+        <textarea class="field field--corner optional" id="contactsMessage" name="contactsMessage" placeholder="Sua mensagem aqui"></textarea>
+    </div>
+    <button class="btn theme-element" type="submit">Enviar</button>
+</form>

@@ -3,16 +3,18 @@ session_start();
 include 'includes/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['contactsName'];
+    $nome = $_POST['nome'];
+    $sobrenome = $_POST['sobrenome'];
+    $telefone = $_POST['telefone'];
+    $mensagem = $_POST['mensagem'];
     $data_ = $_POST['data_'];
-    $horario = $_POST['horario'];
-    $contactsTel = $_POST['contactsTel'];
-    $contactsMessage = $_POST['contactsMessage'];
+    $horario = $_POST['horario']
+    $created_at = $_POST['created_at']
 
-    $sql = "INSERT INTO contatos (nome, telefone, data_, mensagem, horario) VALUES (:nome, :telefone, :data_, :mensagem, :horario)";
+    $sql = "INSERT INTO contatos (nome, sobrenome, telefone, mensagem, data_, horario, created_at) VALUES (:nome, :sobrenome, :telefone, :mensagem, :data_, :horario, :created_at)";
     $stmt = $pdo->prepare($sql);
 
-    if ($stmt->execute(['contactsName' => $name, 'contactsTel' => $contactsTel, 'data_' => $data_, 'contactsMessage' => $contactsMessage, 'horario' => $horario])) {
+    if ($stmt->execute(['nome' => $nome, 'sobrenome' => $sobrenome, , 'telefone' => $telefone, 'mensagem' => $mensagem, 'data_' => $data_, 'horario' => $horario, 'created_at' => $created_at])) {
         $successMessage = "Mensagem enviada com sucesso";
     } else {
         $errorMessage = "Erro no envio da mensagem: " . $stmt->errorInfo()[2];
@@ -38,11 +40,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php } ?>
 
     <form method="POST" action="form.php">
-        <label for="contactsName">Nome:</label>
-        <input type="text" id="contactsName" name="contactsName" required>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
         <br>
-        <label for="contactsTel">Telefone:</label>
-        <input type="text" id="contactsTel" name="contactsTel" required>
+        <label for="sobrenome">Sobrenome:</label>
+        <input type="text" id="sobrenome" name="sobrenome" required>
+        <br>
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" required>
+        <br>
+        <label for="mensagem">Mensagem:</label>
+        <input type="text" id="mensagem" name="mensagem" required>
         <br>
         <label for="data_">Data (dd/mm/aaaa):</label>
         <input type="text" id="data_" name="data_" required>
@@ -50,12 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="horario">Horário (hh:mm):</label>
         <input type="text" id="horario" name="horario" required>
         <br>
-        <label for="contactsMessage">Mensagem:</label>
-        <textarea id="contactsMessage" name="contactsMessage" required></textarea>
+        <label for="created_at">created at:</label>
+        <input type="text" id="created_at" name="created_at" required>
         <br>
         <button type="submit">Enviar</button>
     </form>
-
-    <?php include 'includes/footer.php'; ?>
 </body>
 </html>
