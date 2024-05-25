@@ -1,34 +1,63 @@
-<?php 
+<?php
+session_start();
+include 'includes/db.php';
 
-	// Read the form values
-	
-	$name = $_POST['contactsName'];
-	$data = $_POST['data'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['contactsName'];
+    $data = $_POST['data'];
     $horario = $_POST['horario'];
-	$senderTel = $_POST['contactsTel'] ;
-	$message = $_POST['contactsMessage'];
+    $senderTel = $_POST['contactsTel'];
+    $message = $_POST['contactsMessage'];
 
-	// configurações de credencias 
-	$server =  'localhost';
-	$usuario = 'root';
-	$senha = '';
-	$banco = 'barbearia';
+    $sql = "INSERT INTO contatos (nome, telefone, data, mensagem, horario) VALUES (:nome, :telefone, :data, :mensagem, :horario)";
+    $stmt = $pdo->prepare($sql);
 
-	// conexao com nosso banco de dados
-	$conn = new mysqli($server, $usuario, $senha, $banco);
-	// verificar conexao
-	if($conn->connect_error){
-		die("falha ao se comunicar com o banco de dados:".$conn->connect_error);
-	}
-	$smtp = $conn-> prepare("INSERT INTO contatos (nome, telefone, data, mensagem, horario) VALUES (?,?,?,?,?)");
-	$smtp->bind_param("sssss",$name, $senderTel, $data, $message, $horario);
-
-	if($smtp->execute()){
-		echo "Mensagem enviada com sucesso";
-	}else{
-		echo "erro no envio da mensagem: ".$smtp->error;
-	}
-	$smtp->close();
-	$conn->close();
-
+    if ($stmt->execute(['nome' => $name, 'telefone' => $senderTel, 'data' => $data, 'mensagem' => $message, 'horario' => $horario])) {
+        $successMessage = "Mensagem enviada com sucesso";
+    } else {
+        $errorMessage = "Erro no envio da mensagem: " . $stmt->errorInfo()[2];
+    }
+}
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <?php include 'includes/header.php'; ?>
+    
+    <h2>Contato</h2>
+
+    <?php if (isset($successMessage)) { ?>
+        <p><?php echo $successMessage; ?></p>
+    <?php } elseif (isset($errorMessage)) { ?>
+        <p><?php echo $errorMessage; ?></p>
+    <?php } ?>
+
+    <form method="POST" action="form.php">
+        <label for="contactsName">Nome:</label>
+        <input type="text" id="contactsName" name="contactsName" required>
+        <br>
+        <label for="contactsTel">Telefone:</label>
+        <input type="text" id="contactsTel" name="contactsTel" required>
+        <br>
+        <label for="data">Data (dd/mm/aaaa):</label>
+        <input type="text" id="data" name="data" required>
+        <br>
+        <label for="horario">Horário (hh:mm):</label>
+        <input type="text" id="horario" name="horario" required>
+        <br>
+        <label for="contactsMessage">Mensagem:</label>
+        <textarea id="contactsMessage" name="contactsMessage" required></textarea>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <?php include 'includes/footer.php'; ?>
+</body>
+</html>
