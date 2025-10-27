@@ -106,6 +106,7 @@ Caso utilize outra estrutura, ajuste os campos em `form.php` e garanta que o arq
 - **Envio de e-mail**: notificar automaticamente a barbearia sobre novos cadastros.
 - **Refatoração SCSS**: organizar variáveis, mixins e automatizar a compilação em um fluxo de build (ex.: Webpack, Gulp ou npm scripts).
 
-## Créditos
+## Créditos (Grupo)
 
-Projeto desenvolvido pelos estudantes da disciplina de Desenvolvimento em Dispositivos Móveis da Universidade Estácio de Sá – campus Teresópolis. Utilize este repositório como base para estudos e evolução contínua do projeto.
+Projeto desenvolvido por Guilherme M. K. Cameron, Ygor J. G. S. Batista, Fabricio, Pablo e Eduardo, dentro da disciplina de Desenvolvimento em Dispositivos Móveis da Universidade Estácio de Sá – campus Teresópolis. 
+Utilize este repositório como base para estudos e evolução contínua do projeto.
